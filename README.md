@@ -21,32 +21,54 @@ pip install -U git+https://github.com/guaiguaihw/py-eos-api
      'participation_rate': '1.00000000000000000',
      'recent_slots': '1111111111111111111111111111111111111111111111111111111111111111'}
 
->>> c.get_account?
+>>> c.get_actions('user')
 
-    Signature: c.get_account(name) -> dict
-    Docstring: Fetch a blockchain account
-    File:      ~/GitHub/EOS/py-eos-api/eosapi/api.py
-    Type:      method
+    {
+    "actions": [{
+      "global_action_seq": 3475,
+      "account_action_seq": 0,
+      "block_num": 3466,
+      "block_time": "2018-05-15T03:17:55.000",
+      "action_trace": {
+        "receipt": {
+          "receiver": "user",
+          "act_digest": "14e6fdb4f96b67e96801aa72702b06fdc0d05be857a1010f65e1f9bf2ceae305",
+          "global_sequence": 3475,
+          "recv_sequence": 1,
+          "auth_sequence": [[
+              "eosio",
+              3472
 
->>> c.get_account('inita')
-
-    {'eos_balance': '1000000.0000 EOS',
-     'last_unstaking_time': '1969-12-31T23:59:59',
-     'name': 'inita',
-     'permissions': [{'name': 'active',
-       'parent': 'owner',
-       'required_auth': {'accounts': [],
-        'keys': [{'key': 'EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
-          'weight': 1}],
-        'threshold': 1}},
-      {'name': 'owner',
-       'parent': 'owner',
-       'required_auth': {'accounts': [],
-        'keys': [{'key': 'EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
-          'weight': 1}],
-        'threshold': 1}}],
-     'staked_balance': '0.0000 EOS',
-     'unstaking_balance': '0.0000 EOS'}
+            ]
+          ]
+        },
+        "act": {
+          "account": "eosio.token",
+          "name": "transfer",
+          "authorization": [{
+              "actor": "eosio",
+              "permission": "active"
+            }
+          ],
+          "data": {
+            "from": "eosio",
+            "to": "user",
+            "quantity": "20000.0000 EOS",
+            "memo": "memo"
+          },
+          "hex_data": "0000000000ea305500000000007015d600c2eb0b0000000004454f5300000000046d656d6f"
+        },
+        "elapsed": 4,
+        "cpu_usage": 0,
+        "console": "",
+        "total_cpu_usage": 0,
+        "trx_id": "d8ccad0fc0af1594d837612f31a95862a13931bfa14306cfc406a752cbd4dcb7",
+        "inline_traces": []
+      }
+    }
+    ],
+    "last_irreversible_block": 5558
+    }
 ```
 
 You can also use a lower level `HttpClient` directly:

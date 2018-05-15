@@ -88,7 +88,7 @@ class Client(HttpClient):
         """ Retrieve a transaction from the blockchain. """
 
         body = dict(
-            transaction_id=transaction_id,
+            id=transaction_id,
         )
 
         return self.exec(
