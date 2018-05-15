@@ -3,7 +3,7 @@ This is an unofficial API wrapper by [@furion](https://steemit.com/@furion)
 
 ## Installation
 ```
-pip install -U git+https://github.com/Netherdrake/py-eos-api
+pip install -U git+https://github.com/guaiguaihw/py-eos-api
 ```
 
 ## Usage
