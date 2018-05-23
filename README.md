@@ -23,7 +23,7 @@ pip install -U git+https://github.com/guaiguaihw/py-eos-api
 
 >>> c.get_actions('user')
 
-    {
+  {
     "actions": [{
       "global_action_seq": 3475,
       "account_action_seq": 0,
@@ -68,7 +68,19 @@ pip install -U git+https://github.com/guaiguaihw/py-eos-api
     }
     ],
     "last_irreversible_block": 5558
-    }
+  }
+
+>>> c.get_table_rows("voter1", "eosio", "refunds")
+
+  {
+    'rows': [{
+        'owner': 'voter1',
+        'request_time': '2018-05-23T08:42:49',
+        'amount': 750000
+      }
+    ],
+    'more': False
+  }
 ```
 
 You can also use a lower level `HttpClient` directly:
