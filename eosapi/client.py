@@ -81,6 +81,21 @@ class Client(HttpClient):
             body=body
         )
 
+    def get_table_rows(self, scope, code, table) -> dict:
+        """ Fetch a blockchain account """
+
+        body = dict(
+            scope=scope,
+            code=code,
+            table=table,
+        )
+
+        return self.exec(
+            api='chain',
+            endpoint='get_table_rows',
+            body=body
+        )
+
     # ---------------------------
     # /v1/history/*
     # ---------------------------
