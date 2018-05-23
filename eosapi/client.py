@@ -88,7 +88,7 @@ class Client(HttpClient):
             scope=scope,
             code=code,
             table=table,
-            json=true,
+            json=True,
         )
 
         return self.exec(
