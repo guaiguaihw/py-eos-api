@@ -63,7 +63,7 @@ class HttpClient(object):
             retries=kwargs.get('http_retries', 10),
             timeout=timeout,
             socket_options=socket_options,
-            headers={'Content-Type': 'application/json'},
+            headers={'Content-Type': 'application/json','Connection': 'keep-alive'},
             cert_reqs='CERT_REQUIRED',
             ca_certs=certifi.where())
         '''
